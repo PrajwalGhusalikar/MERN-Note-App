@@ -1,51 +1,63 @@
-import React, { useContext,useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 
 import noteContex from "../contex/NoteContex";
 import Noteitem from "./Noteitem";
+import { useNavigate } from "react-router-dom";
 
 let isValid = false;
-const Note = () => {
+const Note = (props) => {
   const context = useContext(noteContex);
-  const { note, getNotes,editNote } = context;
+  const { note, getNotes, editNote } = context;
+  let showAlert = props.showAlert;
+  let navigate = useNavigate();
 
   useEffect(() => {
-    getNotes();
+    if (localStorage.getItem("token")) {
+      getNotes();
+    } else {
+      navigate("/login");
+    }
     // eslint-disable-next-line
   }, []);
-   
+
   const ref = useRef(null);
-  const refClose=useRef(null);
+  const refClose = useRef(null);
   const [notes, setNotes] = useState({
-    id:"",
+    id: "",
     etitle: "",
     edescription: "",
     etag: "default",
   });
 
-const onClick = (e) => {
-  editNote(notes.id,notes.etitle,notes.edescription,notes.etag)
-  refClose.current.click();
-};
+  const onClick = (e) => {
+    editNote(notes.id, notes.etitle, notes.edescription, notes.etag);
+    props.showAlert("Note Edited Successfully", "success");
+    refClose.current.click();
+  };
 
-const onChange = (e) => {
-  setNotes({ ...notes, [e.target.name]: e.target.value });
-  console.log('obj ' ,{[e.target.name]: e.target.value });
-  checkFormValidation(e);
-};
+  const onChange = (e) => {
+    setNotes({ ...notes, [e.target.name]: e.target.value });
 
-const updateNote = (currentNote) => {
+    checkFormValidation(e);
+  };
 
-  ref.current.click();
-  setNotes({id:currentNote._id, etitle:currentNote.title, edescription:currentNote.description, etag:currentNote.tag})
-};
+  const updateNote = (currentNote) => {
+    ref.current.click();
+    setNotes({
+      id: currentNote._id,
+      etitle: currentNote.title,
+      edescription: currentNote.description,
+      etag: currentNote.tag,
+    });
+  };
 
-const checkFormValidation = (e) => {
-    if (e.target.value.length > 4 ) {
+  const checkFormValidation = (e) => {
+    if (e.target.value.length > 4) {
       isValid = true;
     } else {
       isValid = false;
     }
-  }
+  };
 
   return (
     <div>
@@ -120,8 +132,6 @@ const checkFormValidation = (e) => {
                     onChange={onChange}
                   />
                 </div>
-
-                
               </form>
             </div>
             <div className="modal-footer">
@@ -133,10 +143,11 @@ const checkFormValidation = (e) => {
               >
                 Close
               </button>
-              <button type="button" onClick={onClick}
-                  className={`btn btn-primary ${
-                    isValid ? "active" : "disabled"
-                  }`}>
+              <button
+                type="button"
+                onClick={onClick}
+                className={`btn btn-primary ${isValid ? "active" : "disabled"}`}
+              >
                 Save changes
               </button>
             </div>
@@ -145,11 +156,19 @@ const checkFormValidation = (e) => {
       </div>
 
       <div className="container my-4">
+        <div className="container">
+          <h2>All Notes</h2>
+        </div>
+        {note.length === 0 ? "Currently No notes" : ""}
         <div className="row row-cols-1 row-cols-md-4 g-4">
-          {/* {console.log("key", note._id)} */}
           {note?.map((note) => {
             return (
-              <Noteitem key={note._id} updateNote={updateNote} note={note} />
+              <Noteitem
+                key={note._id}
+                updateNote={updateNote}
+                showAlert={showAlert}
+                note={note}
+              />
             );
           })}
         </div>

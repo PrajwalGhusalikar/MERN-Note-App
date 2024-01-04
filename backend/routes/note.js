@@ -6,8 +6,9 @@ const { body, validationResult } = require("express-validator");
 
 //fetchnotes
 router.get("/fetchnotes", fetchuser, async (req, res) => {
-  // console.log("req.user.id",req.user.id)
+
   const notes = await Notes.find({ user: req.user.id });
+  
   res.json(notes);
 });
 
@@ -36,7 +37,6 @@ router.post(
       const note = new Notes({ title, description, tag, user: req.user.id });
       const savedNote = await note.save();
       return res.send({ success: true, notes: savedNote });
-      console.log("savednote", savedNote);
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Error Occured");
@@ -64,7 +64,6 @@ router.put("/updatenotes/:id", fetchuser, async (req, res) => {
   if (!note) {
     return res.status(404).send("not not found");
   }
-  // console.log("note",note.user.toString())
   if (note.user.toString() !== req.user.id) {
     return res.status(404).send("wrong user");
   }
@@ -73,7 +72,7 @@ router.put("/updatenotes/:id", fetchuser, async (req, res) => {
     { $set: newNote },
     { new: true }
   );
-  // console.log("note",note)
+
   return res.json({ note });
 });
 
@@ -84,12 +83,11 @@ router.delete("/deletenotes/:noteid", fetchuser, async (req, res) => {
   if (!note) {
     return res.status(404).send("note not found");
   }
-  // console.log("note",note.user.toString())
+
   if (note.user.toString() !== req.user.id) {
     return res.status(404).send("wrong user");
   }
   note = await Notes.findByIdAndDelete(req.params.noteid);
-  // console.log("note",note)
   return res.json({ success: " note has been deleted", note: note });
 });
 

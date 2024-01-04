@@ -1,12 +1,13 @@
 import React from "react";
 import Notes from "./Note";
 import AddNotes from "./AddNotes";
-const Home= ()=> {
+const Home= (props)=> {
+  let showAlert = props.showAlert
   return (
   
     <div>
-     <AddNotes/>
-     <Notes></Notes>
+     <AddNotes showAlert={showAlert}/>
+     <Notes showAlert={showAlert}></Notes>
     </div>
   );
 }

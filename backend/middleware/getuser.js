@@ -3,17 +3,13 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = "passwordis$secure";
 const fetchUser = (req, res, next) => {
   let token = req.header("auth-token");
-
   if (!token) {
     res.status(401).send({ error: "enter vallid token" });
   }
 
   try {
     const data = jwt.verify(token, JWT_SECRET);
-
-    // console.log("data",data)
     req.user = data.user;
-    //  console.log("req.user",req.user)
     next();
   } catch (error) {
     res.status(401).send("enter vallid token");

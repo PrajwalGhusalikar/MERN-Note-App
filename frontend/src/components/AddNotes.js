@@ -4,30 +4,29 @@ let isValid = false;
 let isTitleValid = false;
 let isDescriptionValid = false;
 
-const AddNotes = () => {
+const AddNotes = (props) => {
   const contex = useContext(noteContex);
   const { addNote } = contex;
   let defaultNoteValue = {
     title: "",
     description: "",
-    tag: "default",
+    tag: "Default",
   };
   const [note, setNote] = useState(defaultNoteValue);
 
-
- function resetForm(){
-     isValid = false;
-isTitleValid = false;
-isDescriptionValid = false;
-setNote(defaultNoteValue);
-document.querySelector(".error-title").innerHTML = "";
-document.querySelector(".error-des").innerHTML =""
+  function resetForm() {
+    isValid = false;
+    isTitleValid = false;
+    isDescriptionValid = false;
+    setNote(defaultNoteValue);
+    document.querySelector(".error-title").innerHTML = "";
+    document.querySelector(".error-des").innerHTML = "";
   }
   const onClick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
-    resetForm()
-   
+    props.showAlert("Note Added Successfully", "success");
+    resetForm();
   };
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
@@ -60,20 +59,13 @@ document.querySelector(".error-des").innerHTML =""
       }
     }
     isValid = isDescriptionValid && isTitleValid ? true : false;
-
-    console.log(
-      "isDescriptionValid",
-      isDescriptionValid,
-      "isTitleValid",
-      isTitleValid
-    );
   };
 
   return (
     <div>
       <h1>Add Notes</h1>
       <div className="container">
-        <form>
+        <form onSubmit={onClick}>
           <div className="mb-3 my-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Title
@@ -85,6 +77,8 @@ document.querySelector(".error-des").innerHTML =""
               name="title"
               onChange={onChange}
               value={note.title}
+              minLength={5}
+              required
             />
             <p className="error-title"></p>
           </div>
@@ -99,6 +93,8 @@ document.querySelector(".error-des").innerHTML =""
               name="description"
               onChange={onChange}
               value={note.description}
+              minLength={5}
+              required
             />
             <p className="error-des"></p>
           </div>
@@ -112,16 +108,27 @@ document.querySelector(".error-des").innerHTML =""
               id="tag"
               name="tag"
               onChange={onChange}
+              value={note.tag}
+              required
             />
           </div>
 
-          <button
-            type="submit"
-            onClick={onClick}
-            className={`btn btn-primary ${isValid ? "active" : "disabled"}`}
-          >
-            Submit
-          </button>
+          <div className="container">
+            <button
+              type="submit"
+              className={`btn btn-primary ${isValid ? "active" : "disabled"}`}
+            >
+              Submit
+            </button>
+            <button
+              type="submit"
+              onClick={() => resetForm()}
+              className={`btn btn-primary mx-2}`}
+              style={{ marginLeft: "10px" }}
+            >
+              Reset
+            </button>
+          </div>
         </form>
       </div>
     </div>
