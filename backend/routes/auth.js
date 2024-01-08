@@ -7,8 +7,8 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const fetchuser = require("../middleware/getuser");
 
-// const JWT_SECRET = process.env.REACT_APP_JWT_SECRET;
-const JWT_SECRET = "passwordis$secure";
+const JWT_SECRET = process.env.REACT_APP_JWT_SECRET;
+
 let success= false
 //user api
 router.post(
