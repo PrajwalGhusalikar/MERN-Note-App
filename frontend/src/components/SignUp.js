@@ -12,7 +12,7 @@ const SignUp = (props) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/auth/createuser", {
+    const response = await fetch("https://noteapp2-b4en.onrender.com/auth/createuser", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -56,7 +56,7 @@ const SignUp = (props) => {
               Username
             </label>
             <div className="input-group">
-              <div className="input-group-prepend" style={{backgroundColor:" #d9d9d9"}}>
+              <div className="input-group-prepend" style={{backgroundColor:" #d9d9d9", borderRadius:"4px"}}>
                 <div className="input-group-text" ><i style={{height: "24px"}}>@</i></div>
               </div>
               <input

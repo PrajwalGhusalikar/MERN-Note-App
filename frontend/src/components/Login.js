@@ -6,7 +6,7 @@ const Login = (props) => {
   let navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/auth/login", {
+    const response = await fetch("https://noteapp2-b4en.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -89,7 +89,7 @@ const Login = (props) => {
         </button>
       </form>
       <div className="container my-3">
-        <h4>Or create New Account By
+        <h4>Or Create New Account by
           <Link to="/signup"> <u>Signup</u></Link></h4>
         </div>
     </div>

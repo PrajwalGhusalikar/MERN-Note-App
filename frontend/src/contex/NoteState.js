@@ -2,7 +2,7 @@ import noteContex from "./NoteContex";
 
 import { useState } from "react";
 
-const url = "http://localhost:5000";
+const url = "https://noteapp2-b4en.onrender.com";
 
 const NoteState = (props) => {
   const notes = [];
