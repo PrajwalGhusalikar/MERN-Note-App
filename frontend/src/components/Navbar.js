@@ -76,7 +76,7 @@ function Navbar() {
               </>
             ) : (
               <>
-                <form className="d-flex">
+                {/* <form className="d-flex">
                   <input
                     className="form-control me-2"
                     type="search"
@@ -86,9 +86,9 @@ function Navbar() {
                   <button className="btn btn-outline-success" type="submit">
                     Search
                   </button>
-                </form>
+                </form> */}
                 <Link
-                  className="btn btn-primary btn-sm mx-1 my-3"
+                  className="btn btn-danger btn-sm mx-1 my-3"
                   to="/login"
                   onClick={logOut}
                   role="button"

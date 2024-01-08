@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link} from "react-router-dom";
 
 const Login = (props) => {
   let [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -34,6 +34,7 @@ const Login = (props) => {
   };
   return (
     <div>
+      <h1 className="mb-4"><u>Login to Continue</u></h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -41,8 +42,8 @@ const Login = (props) => {
           </label>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text">
-                <i className="fa-solid fa-envelope"></i>
+              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
+                <i className="fa-solid fa-envelope" style={{height: "24px"}}></i>
               </div>
             </div>
             <input
@@ -67,8 +68,8 @@ const Login = (props) => {
           </label>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text">
-                <i className="fa-solid fa-lock"></i>
+              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
+                <i className="fa-solid fa-lock" style={{height: "24px"}}></i>
               </div>
             </div>
             <input
@@ -87,6 +88,10 @@ const Login = (props) => {
           Login
         </button>
       </form>
+      <div className="container my-3">
+        <h4>Or create New Account By
+          <Link to="/signup"> <u>Signup</u></Link></h4>
+        </div>
     </div>
   );
 };

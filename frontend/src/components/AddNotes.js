@@ -63,7 +63,7 @@ const AddNotes = (props) => {
 
   return (
     <div>
-      <h1>Add Notes</h1>
+      <h1><u>Add a Note:</u></h1>
       <div className="container">
         <form onSubmit={onClick}>
           <div className="mb-3 my-3">
@@ -123,7 +123,7 @@ const AddNotes = (props) => {
             <button
               type="submit"
               onClick={() => resetForm()}
-              className={`btn btn-primary mx-2}`}
+              className={`btn btn-danger mx-2}`}
               style={{ marginLeft: "10px" }}
             >
               Reset

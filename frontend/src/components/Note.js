@@ -79,7 +79,7 @@ const Note = (props) => {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content" style={{background:" linear-gradient(to top left, #053e51 0%, #191e46 100%)"}}>
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Modal title
@@ -157,9 +157,9 @@ const Note = (props) => {
 
       <div className="container my-4">
         <div className="container">
-          <h2>All Notes</h2>
+          <h2 className="text-success mb-3"><u>My Notes:</u></h2>
         </div>
-        {note.length === 0 ? "Currently No notes" : ""}
+        {note.length === 0 ?<h3 className="text-danger">Currently, No notes are available</h3>: ""}
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {note?.map((note) => {
             return (

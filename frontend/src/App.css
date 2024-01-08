@@ -1,0 +1,6 @@
+body{
+    background: linear-gradient(to top left, #053e51 0%, #191e46 100%);
+}
+p, h1, h2, h3, h4, h5, h6, label{
+    color : white;
+}

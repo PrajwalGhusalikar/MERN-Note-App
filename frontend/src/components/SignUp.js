@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 let btnValid = false;
 const SignUp = (props) => {
   let [credentials, setCredentials] = useState({
@@ -48,6 +48,7 @@ const SignUp = (props) => {
   }
   return (
     <div>
+        <h1 className="mb-4"><u>Create New Account</u></h1>
       <form onSubmit={handleSubmit}>
         <div>
           <div className="mb-3">
@@ -55,8 +56,8 @@ const SignUp = (props) => {
               Username
             </label>
             <div className="input-group">
-              <div className="input-group-prepend">
-                <div className="input-group-text">@</div>
+              <div className="input-group-prepend" style={{backgroundColor:" #d9d9d9"}}>
+                <div className="input-group-text" ><i style={{height: "24px"}}>@</i></div>
               </div>
               <input
                 type="text"
@@ -77,9 +78,9 @@ const SignUp = (props) => {
             Email address
           </label>
           <div className="input-group">
-            <div className="input-group-prepend">
-              <div className="input-group-text">
-                <i className="fa-solid fa-envelope"></i>
+            <div className="input-group-prepend" >
+              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
+                <i className="fa-solid fa-envelope" style={{height: "24px"}}></i>
               </div>
             </div>
             <input
@@ -104,8 +105,8 @@ const SignUp = (props) => {
           </label>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text">
-                <i className="fa-solid fa-lock"></i>
+              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
+                <i className="fa-solid fa-lock" style={{height: "24px"}}></i>
               </div>
             </div>
             <input
@@ -126,8 +127,8 @@ const SignUp = (props) => {
           </label>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text">
-                <i className="fa-solid fa-key"></i>
+              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
+                <i className="fa-solid fa-key" style={{height: "24px"}}></i>
               </div>
             </div>
             <input
@@ -149,6 +150,10 @@ const SignUp = (props) => {
           SignUp
         </button>
       </form>
+      <div className="container my-3">
+        <h4>Already have an Account? 
+          <Link to="/login"> <u>Login</u></Link></h4>
+        </div>
     </div>
   );
 };
