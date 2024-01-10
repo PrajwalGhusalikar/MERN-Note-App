@@ -20,15 +20,20 @@ function App() {
       setAlert(null)
     },4000)
   }
+
+  let [searchText,setSearchText ]= useState("")
+  console.log("searchTextnew", searchText)
+
     return (
     <>
       <NoteState>
         <Router>
-          <Navbar />
+        <Navbar setSearchText={setSearchText}/>
+      
           <Alert alert={alert}/>
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home showAlert={showAlert}/>} />
+              <Route path="/" element={<Home showAlert={showAlert}  searchText={searchText}/>} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/login" element={<Login showAlert={showAlert}/>}/>
               <Route exact path="/signup" element={<SignUp showAlert={showAlert}/>}/>

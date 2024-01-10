@@ -17,9 +17,15 @@ const NoteState = (props) => {
       },
     });
     const notes = await response.json();
-
+    console.log(" i am notes form getnotes". notes)
     setNote(notes);
   };
+
+  //display search notes
+
+  const searchNotes=(newnotes)=>{
+    setNote(newnotes)
+  }
 
   //add a note
   const addNote = async (title, description, tag) => {
@@ -88,7 +94,7 @@ const NoteState = (props) => {
 
   return (
     <noteContex.Provider
-      value={{ note, addNote, deleteNote, getNotes, editNote }}
+      value={{ note, addNote, deleteNote, getNotes, editNote , searchNotes}}
     >
       {props.children}
     </noteContex.Provider>

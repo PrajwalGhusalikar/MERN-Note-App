@@ -24,7 +24,7 @@ const AddNotes = (props) => {
   }
   const onClick = (e) => {
     e.preventDefault();
-    addNote(note.title, note.description, note.tag);
+    addNote(note.title.trim(), note.description.trim(), note.tag.trim());
     props.showAlert("Note Added Successfully", "success");
     resetForm();
   };
@@ -63,7 +63,7 @@ const AddNotes = (props) => {
 
   return (
     <div>
-      <h1><u>Add a Note:</u></h1>
+      <h2 style={{fontFamily:"revert"}}><u>Add a Note:</u></h2>
       <div className="container">
         <form onSubmit={onClick}>
           <div className="mb-3 my-3">

@@ -10,7 +10,7 @@ const Note = (props) => {
   const { note, getNotes, editNote } = context;
   let showAlert = props.showAlert;
   let navigate = useNavigate();
-
+ let searchText= props.searchText
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getNotes();
@@ -161,7 +161,8 @@ const Note = (props) => {
         </div>
         {note.length === 0 ?<h3 className="text-danger">Currently, No notes are available</h3>: ""}
         <div className="row row-cols-1 row-cols-md-4 g-4">
-          {note?.map((note) => {
+          {console.log("searchText-----",searchText)}
+          {note?.filter((note)=>note.title.toLowerCase().includes(searchText) ).map((note) => {
             return (
               <Noteitem
                 key={note._id}

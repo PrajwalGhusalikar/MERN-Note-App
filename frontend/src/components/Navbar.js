@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
-function Navbar() {
+function Navbar(props) {
+ let setSearchText = props.setSearchText
   let location = useLocation();
-  useEffect(() => {}, [location]);
-
   function logOut() {
     localStorage.removeItem("token");
   }
 
+ 
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -76,17 +77,7 @@ function Navbar() {
               </>
             ) : (
               <>
-                {/* <form className="d-flex">
-                  <input
-                    className="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button className="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
-                </form> */}
+                <SearchBar setSearchText={setSearchText}/>
                 <Link
                   className="btn btn-danger btn-sm mx-1 my-3"
                   to="/login"
