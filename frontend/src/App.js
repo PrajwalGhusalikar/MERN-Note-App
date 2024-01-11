@@ -22,15 +22,14 @@ function App() {
   }
 
   let [searchText,setSearchText ]= useState("")
-  console.log("searchTextnew", searchText)
+  let [welcomeUser, setWelcomeUser] = useState("");
 
     return (
     <>
       <NoteState>
         <Router>
-        <Navbar setSearchText={setSearchText}/>
-      
-          <Alert alert={alert}/>
+        <Navbar setSearchText={setSearchText} setWelcomeUser={setWelcomeUser}/>
+          <Alert alert={alert} welcomeUser={welcomeUser}/>
           <div className="container">
             <Routes>
               <Route path="/" element={<Home showAlert={showAlert}  searchText={searchText}/>} />

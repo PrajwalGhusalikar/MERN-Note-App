@@ -1,8 +1,15 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Alert = (props) => {
+
+  let location = useLocation();
   return (
-    <div style={{ height: "55px" }}>
+
+
+    <div style={{ height: "55px"}}>
+      {!(props.alert)&& (<h2 className="welcome p-3 text-primary text-center ">{(location.pathname!=="/")?"":`Welcome ${props.welcomeUser.name}`} </h2>)}
+
       {props.alert && (
         <div
           className={`alert alert-${props.alert.type} alert-dismissible fade show`}

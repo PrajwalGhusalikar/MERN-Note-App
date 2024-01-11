@@ -10,7 +10,7 @@ const Note = (props) => {
   const { note, getNotes, editNote } = context;
   let showAlert = props.showAlert;
   let navigate = useNavigate();
- let searchText= props.searchText
+  let searchText = props.searchText;
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getNotes();
@@ -79,7 +79,13 @@ const Note = (props) => {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content" style={{background:" linear-gradient(to top left, #053e51 0%, #191e46 100%)"}}>
+          <div
+            className="modal-content"
+            style={{
+              background:
+                " linear-gradient(to top left, #053e51 0%, #191e46 100%)",
+            }}
+          >
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 Modal title
@@ -157,21 +163,33 @@ const Note = (props) => {
 
       <div className="container my-4">
         <div className="container">
-          <h2 className="text-success mb-3"><u>My Notes:</u></h2>
+          <h2 className="text-white mb-3">
+            <u>My Notes:</u>
+          </h2>
         </div>
-        {note.length === 0 ?<h3 className="text-danger">Currently, No notes are available</h3>: ""}
+        {note.length === 0 ? (
+          <h3 className="text-danger">Currently, No notes are available</h3>
+        ) : (
+          ""
+        )}
         <div className="row row-cols-1 row-cols-md-4 g-4">
-          {console.log("searchText-----",searchText)}
-          {note?.filter((note)=>note.title.toLowerCase().includes(searchText) ).map((note) => {
-            return (
-              <Noteitem
-                key={note._id}
-                updateNote={updateNote}
-                showAlert={showAlert}
-                note={note}
-              />
-            );
-          })}
+    
+          {note
+            ?.filter(
+              (note) =>
+                note.title.toLowerCase().includes(searchText) ||
+                note.title.includes(searchText)
+            )
+            .map((note) => {
+              return (
+                <Noteitem
+                  key={note._id}
+                  updateNote={updateNote}
+                  showAlert={showAlert}
+                  note={note}
+                />
+              );
+            })}
         </div>
       </div>
     </div>

@@ -103,7 +103,7 @@ router.post(
 );
 
 //Route-3 get user details
-router.post("/getuser", fetchuser, async (req, res) => {
+router.get("/getuser", fetchuser, async (req, res) => {
   try {
     let userId = req.user.id;
 

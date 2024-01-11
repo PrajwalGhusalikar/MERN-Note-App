@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import Userdetails from "./Userdetails";
 
 function Navbar(props) {
- let setSearchText = props.setSearchText
+  let setSearchText = props.setSearchText;
   let location = useLocation();
+  useEffect(() => {}, [location]);
   function logOut() {
     localStorage.removeItem("token");
   }
-
- 
+  let setWelcomeUser=props.setWelcomeUser
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link
+            className="navbar-brand"
+            style={{ fontFamily: "cursive" }}
+            to="/"
+          >
             My-Notebook
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -77,15 +83,20 @@ function Navbar(props) {
               </>
             ) : (
               <>
-                <SearchBar setSearchText={setSearchText}/>
+                <SearchBar setSearchText={setSearchText} />
+                <div className="d-flex align-items-center py-2">
+                <div className="mx-2">
+                  <Userdetails setWelcomeUser={setWelcomeUser}/>
+                </div>
                 <Link
-                  className="btn btn-danger btn-sm mx-1 my-3"
+                  className="btn btn-danger btn-sm mx-1 "
                   to="/login"
                   onClick={logOut}
                   role="button"
                 >
                   Log Out
                 </Link>
+                </div>
               </>
             )}
           </div>

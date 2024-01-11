@@ -1,7 +1,6 @@
 import React from "react";
 import Notes from "./Note";
 import AddNotes from "./AddNotes";
-import Navbar from "./Navbar";
 const Home= (props)=> {
   let showAlert = props.showAlert
   let searchText = props.searchText

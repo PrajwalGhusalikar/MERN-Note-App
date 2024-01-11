@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import noteContex from "../contex/NoteContex";
+import React from "react";
 const SearchBar = (props) => {
 //   let context = useContext(noteContex);
 //   let { note, searchNotes, getNotes, notes } = context;
@@ -47,12 +45,12 @@ const SearchBar = (props) => {
 
   return (
     <div>
-      <form className="d-flex">
+      <form className="d-flex input-group-sm">
         <input
-          className="form-control me-2"
+          className="form-control me-2 "
           type="search"
           placeholder="Search Notes"
-          aria-label="Search"
+          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
           onChange={(e)=>{props.setSearchText(e.target.value)}}
         />
       </form>

@@ -63,8 +63,23 @@ const AddNotes = (props) => {
 
   return (
     <div>
-      <h2 style={{fontFamily:"revert"}}><u>Add a Note:</u></h2>
-      <div className="container">
+      <h2 className="pt-2" style={{ fontFamily: "revert" }}>
+        <u>
+          {" "}
+          
+          <a
+            className="btn btn-warning "
+            data-bs-toggle="collapse"
+            href="#collapseExample"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Add a Note <i className="fa-solid fa-bookmark"></i>
+          </a>
+        </u>
+      </h2>
+      <div className="container collapse" id="collapseExample">
         <form onSubmit={onClick}>
           <div className="mb-3 my-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
