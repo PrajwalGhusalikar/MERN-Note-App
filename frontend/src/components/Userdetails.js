@@ -5,33 +5,33 @@ const Userdetails = (props) => {
   let location = useLocation();
   let users = "";
   let [user, setUser] = useState(users);
-  useEffect(() => {
-    fetchUser();
-    
-  }
-  // eslint-disable-next-line
-  , []);
-
-
+  useEffect(
+    () => {
+      fetchUser();
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   const fetchUser = async () => {
-    const response = await fetch(`http://localhost:5000/auth/getuser`, {
-      method: "GET",
-      headers: {
-        "content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"), // later change to jwtToken
-      },
-    });
+    const response = await fetch(
+      `https://noteapp2-b4en.onrender.com/auth/getuser`,
+      {
+        method: "GET",
+        headers: {
+          "content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"), // later change to jwtToken
+        },
+      }
+    );
     users = await response.json();
     setUser(users);
   };
-if(!(location.pathname===("/login")||location.pathname===("/signup"))){
-  props.setWelcomeUser(user)
-}
-else{
-  props.setWelcomeUser('')
-}
-
+  if (!(location.pathname === "/login" || location.pathname === "/signup")) {
+    props.setWelcomeUser(user);
+  } else {
+    props.setWelcomeUser("");
+  }
 
   // console.log("user", user);
 

@@ -1,19 +1,19 @@
 import React from "react";
 
 const About = () => {
-
   return (
     <div>
       <h2>Welcome to About Section:</h2>
-      <u style={{color:"gray"}}>
+      <u style={{ color: "gray" }}>
         Welcome to our innovative Note App, the perfect digital companion for
         organizing your thoughts, tasks, and ideas with ease. Our user-friendly
         interface ensures a seamless experience as you capture and manage your
         notes effortlessly.
       </u>
       <hr />
-      <h5><u>Key Features:
-        </u></h5>
+      <h5>
+        <u>Key Features:</u>
+      </h5>
       <p className="text-secondary">
         Create and Capture: Easily jot down your thoughts, ideas, reminders, and
         to-do lists in a flash. Our intuitive design allows you to create new

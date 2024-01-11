@@ -19,9 +19,7 @@ const Noteitem = (props) => {
             style={{ backgroundColor: "#001a33" }}
           >
             <div className="card-body">
-              
               <span className="position-absolute top-0 end-0  badge rounded-pill bg-danger">
-              
                 <span className="visually">{note.tag}</span>
               </span>
               <h5 className="card-title"> {note.title}</h5>

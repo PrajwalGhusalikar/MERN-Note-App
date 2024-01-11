@@ -66,7 +66,6 @@ const AddNotes = (props) => {
       <h2 className="pt-2" style={{ fontFamily: "revert" }}>
         <u>
           {" "}
-          
           <a
             className="btn btn-warning "
             data-bs-toggle="collapse"
@@ -75,7 +74,7 @@ const AddNotes = (props) => {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            Add a Note <i className="fa-solid fa-bookmark"></i>
+            Add a Note <i className="fa-solid fa-plus"></i>
           </a>
         </u>
       </h2>

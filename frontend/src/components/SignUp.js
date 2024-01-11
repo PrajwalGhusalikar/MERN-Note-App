@@ -12,17 +12,20 @@ const SignUp = (props) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("https://noteapp2-b4en.onrender.com/auth/createuser", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: credentials.username,
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    const response = await fetch(
+      "https://noteapp2-b4en.onrender.com/auth/createuser",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: credentials.username,
+          email: credentials.email,
+          password: credentials.password,
+        }),
+      }
+    );
     const json = await response.json();
 
     if (json.success) {
@@ -48,7 +51,9 @@ const SignUp = (props) => {
   }
   return (
     <div>
-        <h1 className="mb-4"><u>Create New Account</u></h1>
+      <h1 className="mb-4">
+        <u>Create New Account</u>
+      </h1>
       <form onSubmit={handleSubmit}>
         <div>
           <div className="mb-3">
@@ -56,8 +61,13 @@ const SignUp = (props) => {
               Username
             </label>
             <div className="input-group">
-              <div className="input-group-prepend" style={{backgroundColor:" #d9d9d9", borderRadius:"4px"}}>
-                <div className="input-group-text" ><i style={{height: "24px"}}>@</i></div>
+              <div
+                className="input-group-prepend"
+                style={{ backgroundColor: " #d9d9d9", borderRadius: "4px" }}
+              >
+                <div className="input-group-text">
+                  <i style={{ height: "24px" }}>@</i>
+                </div>
               </div>
               <input
                 type="text"
@@ -78,9 +88,15 @@ const SignUp = (props) => {
             Email address
           </label>
           <div className="input-group">
-            <div className="input-group-prepend" >
-              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
-                <i className="fa-solid fa-envelope" style={{height: "24px"}}></i>
+            <div className="input-group-prepend">
+              <div
+                className="input-group-text"
+                style={{ backgroundColor: " #d9d9d9" }}
+              >
+                <i
+                  className="fa-solid fa-envelope"
+                  style={{ height: "24px" }}
+                ></i>
               </div>
             </div>
             <input
@@ -105,8 +121,11 @@ const SignUp = (props) => {
           </label>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
-                <i className="fa-solid fa-lock" style={{height: "24px"}}></i>
+              <div
+                className="input-group-text"
+                style={{ backgroundColor: " #d9d9d9" }}
+              >
+                <i className="fa-solid fa-lock" style={{ height: "24px" }}></i>
               </div>
             </div>
             <input
@@ -127,8 +146,11 @@ const SignUp = (props) => {
           </label>
           <div className="input-group">
             <div className="input-group-prepend">
-              <div className="input-group-text" style={{backgroundColor:" #d9d9d9"}}>
-                <i className="fa-solid fa-key" style={{height: "24px"}}></i>
+              <div
+                className="input-group-text"
+                style={{ backgroundColor: " #d9d9d9" }}
+              >
+                <i className="fa-solid fa-key" style={{ height: "24px" }}></i>
               </div>
             </div>
             <input
@@ -151,9 +173,14 @@ const SignUp = (props) => {
         </button>
       </form>
       <div className="container my-3">
-        <h4>Already have an Account? 
-          <Link to="/login"> <u>Login</u></Link></h4>
-        </div>
+        <h4>
+          Already have an Account?
+          <Link to="/login">
+            {" "}
+            <u>Login</u>
+          </Link>
+        </h4>
+      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ function Navbar(props) {
   function logOut() {
     localStorage.removeItem("token");
   }
-  let setWelcomeUser=props.setWelcomeUser
+  let setWelcomeUser = props.setWelcomeUser;
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -85,17 +85,17 @@ function Navbar(props) {
               <>
                 <SearchBar setSearchText={setSearchText} />
                 <div className="d-flex align-items-center py-2">
-                <div className="mx-2">
-                  <Userdetails setWelcomeUser={setWelcomeUser}/>
-                </div>
-                <Link
-                  className="btn btn-danger btn-sm mx-1 "
-                  to="/login"
-                  onClick={logOut}
-                  role="button"
-                >
-                  Log Out
-                </Link>
+                  <div className="mx-2">
+                    <Userdetails setWelcomeUser={setWelcomeUser} />
+                  </div>
+                  <Link
+                    className="btn btn-danger btn-sm mx-1 "
+                    to="/login"
+                    onClick={logOut}
+                    role="button"
+                  >
+                    Log Out
+                  </Link>
                 </div>
               </>
             )}
