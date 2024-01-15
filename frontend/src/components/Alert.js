@@ -6,7 +6,7 @@ const Alert = (props) => {
   return (
     <div style={{ height: "55px" }}>
       {!props.alert && (
-        <h2 className="welcome p-3 text-primary text-center ">
+        <h2 className="welcome p-3 text-warning text-end fs-4 ">
           {location.pathname !== "/" ? "" : `Welcome ${props.welcomeUser.name}`}{" "}
         </h2>
       )}

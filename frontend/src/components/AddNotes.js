@@ -100,9 +100,10 @@ const AddNotes = (props) => {
             <label htmlFor="exampleInputPassword1" className="form-label">
               Description
             </label>
-            <input
+            <textarea
               type="text"
               className="form-control"
+              rows={4}
               id="description"
               name="description"
               onChange={onChange}

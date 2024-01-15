@@ -8,6 +8,7 @@ let isValid = false;
 const Note = (props) => {
   const context = useContext(noteContex);
   const { note, getNotes, editNote } = context;
+  // console.log("notes",note)
   let showAlert = props.showAlert;
   let navigate = useNavigate();
   let searchText = props.searchText;
@@ -60,7 +61,7 @@ const Note = (props) => {
   };
 
   return (
-    <div>
+    <div style={{height:"auto"}}>
       <button
         ref={ref}
         type="button"
@@ -116,13 +117,14 @@ const Note = (props) => {
                   <label htmlFor="exampleInputPassword1" className="form-label">
                     Description
                   </label>
-                  <input
+                  <textarea
                     type="text"
                     className="form-control"
                     id="edescription"
                     name="edescription"
                     value={notes.edescription}
                     onChange={onChange}
+                    rows={4}
                   />
                 </div>
                 <div className="mb-3">

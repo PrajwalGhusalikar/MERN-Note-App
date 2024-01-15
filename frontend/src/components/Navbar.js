@@ -83,7 +83,8 @@ function Navbar(props) {
               </>
             ) : (
               <>
-                <SearchBar setSearchText={setSearchText} />
+              <div className="d-none  d-sm-block ">  <SearchBar setSearchText={setSearchText} /></div>
+              
                 <div className="d-flex align-items-center py-2">
                   <div className="mx-2">
                     <Userdetails setWelcomeUser={setWelcomeUser} />

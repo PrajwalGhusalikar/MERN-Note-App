@@ -8,7 +8,7 @@ import Alert from "./components/Alert";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import { useState } from "react";
-import SearchBar from "./components/SearchBar";
+
 function App() {
   let [alert,setAlert]= useState(null)
   const showAlert =(message,type)=>{
@@ -32,9 +32,10 @@ function App() {
         <Navbar setSearchText={setSearchText} setWelcomeUser={setWelcomeUser}/>
           <Alert alert={alert} welcomeUser={welcomeUser}/>
           <div className="container">
-            {/* <SearchBar/> */}
+           
             <Routes>
-              <Route path="/" element={<Home showAlert={showAlert}  searchText={searchText}/>} />
+              
+              <Route path="/" element={<Home showAlert={showAlert} setSearchText={setSearchText}  searchText={searchText}/>} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/login" element={<Login showAlert={showAlert}/>}/>
               <Route exact path="/signup" element={<SignUp showAlert={showAlert}/>}/>

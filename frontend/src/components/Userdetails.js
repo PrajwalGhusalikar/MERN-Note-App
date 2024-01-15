@@ -32,7 +32,6 @@ const Userdetails = (props) => {
   } else {
     props.setWelcomeUser("");
   }
-
   // console.log("user", user);
 
   return (
