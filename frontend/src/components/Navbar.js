@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Userdetails from "./Userdetails";
@@ -11,9 +11,28 @@ function Navbar(props) {
     localStorage.removeItem("token");
   }
   let setWelcomeUser = props.setWelcomeUser;
+
+  let [theme, setTheme] = useState("light");
+  let [bgColor, setBgColor] = useState("dark");
+  let [themeIcom, setThemeIcon] = useState("moon");
+
+  function onclick() {
+    if (theme === "dark") {
+      setTheme("light");
+      setBgColor("dark");
+      setThemeIcon("moon");
+      document.body.style.backgroundColor = "	#6495ED";
+    } else {
+      setTheme("dark");
+      setBgColor("light");
+      setThemeIcon("sun");
+      document.body.style.backgroundColor = "gray";
+    }
+  }
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className={`navbar navbar-expand-lg navbar-${theme} bg-${theme}`}>
         <div className="container-fluid">
           <Link
             className="navbar-brand"
@@ -22,6 +41,18 @@ function Navbar(props) {
           >
             My-Notebook
           </Link>
+
+          {/* <div className="form-check form-switch ">
+            <input
+              onclick={onclick}
+              className="form-check-input"
+              type="checkbox"
+              id="flexSwitchCheckDefault"
+            />
+            <label className="form-check-label" for="flexSwitchCheckDefault">
+              Theme Change
+            </label>
+          </div> */}
 
           <button
             className="navbar-toggler"
@@ -83,8 +114,11 @@ function Navbar(props) {
               </>
             ) : (
               <>
-              <div className="d-none  d-sm-block ">  <SearchBar setSearchText={setSearchText} /></div>
-              
+                <div className="d-none  d-sm-block ">
+                  {" "}
+                  <SearchBar setSearchText={setSearchText} />
+                </div>
+
                 <div className="d-flex align-items-center py-2">
                   <div className="mx-2">
                     <Userdetails setWelcomeUser={setWelcomeUser} />
@@ -98,6 +132,12 @@ function Navbar(props) {
                     Log Out
                   </Link>
                 </div>
+                <button
+                  className={`btn btn-${bgColor} btn-sm m-2 `}
+                  onClick={onclick}
+                >
+                  <i className={`fa-solid fa-${themeIcom}`}></i>
+                </button>
               </>
             )}
           </div>

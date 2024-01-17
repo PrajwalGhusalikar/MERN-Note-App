@@ -18,7 +18,12 @@ const Noteitem = (props) => {
         <div className="col">
           <div
             className="card text-light shadow-1g p-3 mb-3   rounded"
-            style={{ background: "linear-gradient(to bottom, #66ccff 0%, #ff6699 100%)", maxWidth: "15rem" }}
+            style={{
+              background:
+                "linear-gradient(to top left, #b0c4de 0%, #6495ed 100%)",
+              maxWidth: "15rem",
+              
+            }}
           >
             <div className="card-body">
               <span className="position-absolute top-0 end-0  badge rounded-pill bg-danger">
