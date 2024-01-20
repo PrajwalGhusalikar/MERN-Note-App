@@ -21,12 +21,12 @@ function Navbar(props) {
       setTheme("light");
       setBgColor("dark");
       setThemeIcon("moon");
-      document.body.style.backgroundColor = "	#6495ED";
+      document.body.style.backgroundColor = "#5F9EA0";
     } else {
       setTheme("dark");
       setBgColor("light");
       setThemeIcon("sun");
-      document.body.style.backgroundColor = "gray";
+      document.body.style.backgroundColor = "#2F4F4F";
     }
   }
 
@@ -53,7 +53,12 @@ function Navbar(props) {
               Theme Change
             </label>
           </div> */}
-
+          <button
+            className={`btn btn-${bgColor} btn-sm m-2 d-block d-sm-none d-md-none  `}
+            onClick={onclick}
+          >
+            <i className={`fa-solid fa-${themeIcom}`}></i>
+          </button>
           <button
             className="navbar-toggler"
             type="button"
@@ -133,7 +138,7 @@ function Navbar(props) {
                   </Link>
                 </div>
                 <button
-                  className={`btn btn-${bgColor} btn-sm m-2 `}
+                  className={`btn btn-${bgColor} btn-sm m-2 d-none d-sm-block d-md-block `}
                   onClick={onclick}
                 >
                   <i className={`fa-solid fa-${themeIcom}`}></i>

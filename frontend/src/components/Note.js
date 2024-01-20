@@ -61,7 +61,7 @@ const Note = (props) => {
   };
 
   return (
-    <div style={{height:"auto"}}>
+    <div style={{ height: "auto" }}>
       <button
         ref={ref}
         type="button"
@@ -83,13 +83,16 @@ const Note = (props) => {
           <div
             className="modal-content"
             style={{
-              background:
-                " linear-gradient(to top left, #053e51 0%, #191e46 100%)",
+              background: "#FFB6C1",
             }}
           >
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
+              <h5
+                className="modal-title"
+                id="exampleModalLabel"
+                style={{ color: "#DC143C" }}
+              >
+                Update Note
               </h5>
               <button
                 type="button"
@@ -101,7 +104,10 @@ const Note = (props) => {
             <div className="modal-body">
               <form>
                 <div className="mb-3 my-3">
-                  <label htmlFor="exampleInputEmail1" className="form-label">
+                  <label
+                    htmlFor="exampleInputEmail1"
+                    className="form-label fs-4"
+                  >
                     Title
                   </label>
                   <input
@@ -114,7 +120,10 @@ const Note = (props) => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
+                  <label
+                    htmlFor="exampleInputPassword1"
+                    className="form-label fs-4"
+                  >
                     Description
                   </label>
                   <textarea
@@ -128,7 +137,10 @@ const Note = (props) => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="exampleInputPassword1" className="form-label">
+                  <label
+                    htmlFor="exampleInputPassword1"
+                    className="form-label fs-4"
+                  >
                     Tag
                   </label>
                   <input
@@ -174,7 +186,7 @@ const Note = (props) => {
         ) : (
           ""
         )}
-        <div className="row row-cols-1 row-cols-md-4 g-4">
+        <div className="row ">
           {note
             ?.filter(
               (note) =>

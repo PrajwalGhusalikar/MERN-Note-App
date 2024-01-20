@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import noteContex from "../contex/NoteContex";
 let isValid = false;
 let isTitleValid = false;
@@ -61,6 +61,8 @@ const AddNotes = (props) => {
     isValid = isDescriptionValid && isTitleValid ? true : false;
   };
 
+  let ref = useRef();
+
   return (
     <div>
       <h2 className="pt-2" style={{ fontFamily: "revert" }}>
@@ -68,6 +70,7 @@ const AddNotes = (props) => {
           {" "}
           <a
             className="btn btn-warning "
+            ref={ref}
             data-bs-toggle="collapse"
             href="#collapseExample"
             role="button"
@@ -132,6 +135,9 @@ const AddNotes = (props) => {
             <button
               type="submit"
               className={`btn btn-primary ${isValid ? "active" : "disabled"}`}
+              onClick={() => {
+                ref.current.click();
+              }}
             >
               Submit
             </button>

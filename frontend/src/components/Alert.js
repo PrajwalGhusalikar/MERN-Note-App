@@ -7,7 +7,29 @@ const Alert = (props) => {
     <div style={{ height: "55px" }}>
       {!props.alert && (
         <h3 className="welcome p-2  text-end fs-5 ">
-          {location.pathname !== "/" ? "" : <u className="text-info bg-dark p-2 rounded-2">{`Welcome ${props.welcomeUser.name}`}</u>}{" "}
+          {location.pathname !== "/" ? (
+            ""
+          ) : (
+            <div className="">
+              <div className="d-none d-md-flex justify-content-between">
+                <h2 className="text-center mx-3 ">
+                  <u>MyNoteBook</u> : Manage All Your Notes at Once
+                </h2>{" "}
+                <span className="text-dark bg-info p-2 rounded-2">
+                  Welcome{" "}
+                  <u>
+                    <b>{`${props.welcomeUser.name}`}</b>
+                  </u>{" "}
+                </span>
+              </div>
+              <span className="text-white  p-2 rounded-2 d-block d-md-none">
+                Welcome{" "}
+                <u>
+                  <b>{`${props.welcomeUser.name}`}</b>
+                </u>{" "}
+              </span>
+            </div>
+          )}{" "}
         </h3>
       )}
 
